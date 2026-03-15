@@ -9,6 +9,8 @@
 radius = 17.117243
 
 [node name="Player" type="CharacterBody2D" unique_id=107215792]
+collision_layer = 2
+collision_mask = 5
 script = ExtResource("1_g2els")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1761921244]
@@ -20,3 +22,6 @@ script = SubResource("GDScript_qhqgy")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=377831551]
 position = Vector2(-2.7999878, 1.199997)
 shape = SubResource("CircleShape2D_3vyb7")
+
+[node name="Muzzle" type="Node2D" parent="." unique_id=1535824259]
+position = Vector2(-3, -29)
