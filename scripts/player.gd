@@ -1,6 +1,7 @@
-extends CharacterBody2D
+class_name Player extends CharacterBody2D
 
 signal bullet_shot(bullet)
+signal died
 
 @export var acceleration := 10.0
 @export var max_speed := 350.0
@@ -12,6 +13,8 @@ var bullet_scene = preload("res://scenes/bullet.tscn")
 
 var shoot_cd = false
 var fire_rate = 0.15
+
+var alive := true
 
 func _process(delta):
 	if Input.is_action_just_pressed("shoot"):
@@ -52,3 +55,9 @@ func shoot_bullet():
 	b.global_position = muzzle.global_position
 	b.rotation = rotation
 	emit_signal("bullet_shot", b)
+
+func die():
+	if alive == true:
+		alive = false
+		emit_signal("died")
+		queue_free()
