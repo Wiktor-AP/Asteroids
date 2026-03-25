@@ -33,3 +33,6 @@ position = Vector2(1039, 406)
 
 [node name="Asteroid5" parent="Asteroids" unique_id=1652037767 instance=ExtResource("3_lnu2h")]
 position = Vector2(274, 369)
+
+[node name="PlayerSpawnPos" type="Node2D" parent="." unique_id=1405525144]
+position = Vector2(640, 360)

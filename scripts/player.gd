@@ -8,6 +8,7 @@ signal died
 @export var rotation_speed := 100.0
 
 @onready var muzzle = $Muzzle
+@onready var sprite = $Sprite2D
 
 var bullet_scene = preload("res://scenes/bullet.tscn")
 
@@ -60,4 +61,13 @@ func die():
 	if alive == true:
 		alive = false
 		emit_signal("died")
-		queue_free()
+		sprite.visible = false
+		process_mode = Node.PROCESS_MODE_DISABLED
+
+func respawn(pos):
+	if alive == false:
+		alive = true
+		global_position = pos
+		velocity = Vector2.ZERO
+		sprite.visible = true
+		process_mode = Node.PROCESS_MODE_INHERIT
